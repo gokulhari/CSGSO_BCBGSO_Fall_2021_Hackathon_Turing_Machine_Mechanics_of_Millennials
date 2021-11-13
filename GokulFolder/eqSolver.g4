@@ -1,7 +1,5 @@
 grammar eqSolver;
 
-// Rules:
-
 program
     : statement* EOF
     ;
@@ -11,10 +9,10 @@ statement
     ;
 
 expr
-    : Identifier
-	| '(' expr ')'
-	| Number
-	| expr ('+' | '-') expr
+    : expr ('+' | '-') expr # building_exp
+    | Identifier # iden_exp
+	| Number # num_exp
+	| '(' expr ')' # paran_exp
 	;
 
 Identifier: Letter (Number) | (Number) Letter;
