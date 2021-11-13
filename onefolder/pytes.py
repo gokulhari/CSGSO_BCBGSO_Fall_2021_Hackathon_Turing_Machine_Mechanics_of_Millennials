@@ -33,7 +33,7 @@ class App:
         if res!=None:
             self.ret = res
         else:
-            self.res = self.msg
+            self.ret = self.msg
 
 
 
