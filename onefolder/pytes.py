@@ -19,15 +19,30 @@ class App:
         alignstr = '%dx%d+%d+%d' % (width, height, (screenwidth - width) / 2, (screenheight - height) / 2)
         root.geometry(alignstr)
         root.resizable(width=False, height=False)
-
+        self.msg = msg
         L1 = Label(root, text=msg)
         L1.pack(side = TOP)
-        entry = Entry(root)
-        entry.focus_set()
-        entry.pack()
+        self.entry = Entry(root)
+        self.entry.focus_set()
+        self.entry.pack()
+        ttk.Button(root, text="Done", command=self.getvalue, width=20).pack(pady=20)
+
+    def getvalue(self):
+        res = self.entry.get()
+        root.destroy()
+        if res!=None:
+            self.ret = res
+        else:
+            self.res = self.msg
 
 
-        ttk.Button(root, text="Done", width=20).pack(pady=20)
+
+
+
+
+
+
+
 
 
 if __name__ == "__main__":
