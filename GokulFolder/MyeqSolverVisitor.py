@@ -42,6 +42,7 @@ class MyeqSolverVisitor(eqSolverVisitor):
         while '' in out:
             out.remove('')
         print(out)
+        
         self.dic[out[1]] = float(out[0])
         
             
